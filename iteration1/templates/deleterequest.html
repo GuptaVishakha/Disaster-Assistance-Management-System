@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link  rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/tablestyle.css') }}">
+    <meta charset="UTF-8">
+    <title>Modify Request</title>
+</head>
+<style>
+    .input[type="submit"] {
+            display: inline-block;
+            background-color: #30aa04;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+    text-align: center;
+
+        }
+a.button2 {
+    display: inline-block;
+    background-color: #aa0404;
+    color: white;
+    padding: 12px 12px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+.container2 {
+    background-color: #f2f2f2;
+            padding: 16px;
+            width:600px;
+    margin: auto;
+    text-align: center;
+        }
+</style>
+<body>
+<form method="POST">
+    <div class="container2">
+    Are you sure you want to delete the following request? <br>
+     {% for k in requests %}
+        Event: {{k[0]}} <br>
+        Items Requested: {{k[1]}}<br>
+        Description: {{k[2]}}<br>
+    {% endfor %}
+
+        <input type="submit" id="yes" name = "submit" value="Yes" class="button"></button>
+        <input type="submit" id="no" name = "submit" value="No" class="button2"></input>
+    </div>
+</form>
+</body>
+</html>

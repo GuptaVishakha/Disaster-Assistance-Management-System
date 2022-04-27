@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link  rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/tablestyle.css') }}">
+  <title>Disaster AssistanceManagementSystem </title>
+</head>
+
+<body>
+
+<h1>Disaster Assistance Management System</h1>
+
+<form method="POST">
+  <div class="container">
+  <label for="EventName">Event Name:</label><br>
+  <input type="text" id="EventName" name="EventName" ><br>
+  <label for="Description">Description:</label><br>
+  <textarea input type="text" id="Description" name="Description" class="textarea"></textarea><br>
+  <label for="GeographicLocation">Geographic Location:</label><br>
+  <input type="text" id="GeographicLocation" name="GeographicLocation" ><br>
+  <label for="state">State</label>
+  <input id="state" name="State" value="{{ request.form['state'] }}" placeholder="XX" pattern="^[A-Z]{2}" title="Must enter capitalized state abbreviation e.g. 'IA'" required><br>
+  <label for="EventTime">When did this event took place?:</label><br>
+  <input type="text" id="EventTime" name="EventTime" ><br>
+  <label for="EventDuration">For how long did the event take place?:</label><br>
+  <input type="text" id="EventDuration" name="EventDuration" ><br>
+  <label for="RequiredItem">Required Item</label><br>
+  <input type="text" id="RequiredItem" name="RequiredItem" ><br><br>
+  <input type="submit" value="Submit">
+  </div>
+</form>
+
+ <p id="thank-you-message">
+   Thank you for contacting us. We will be in touch with you very soon. The event creation request has been generated
+ </p>
+
+
+</body>
+
+</html>

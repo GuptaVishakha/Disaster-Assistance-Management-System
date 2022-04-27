@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link  rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/tablestyle.css') }}">
+    <meta charset="UTF-8">
+    <title>Change Items</title>
+</head>
+<body>
+<form method="POST">
+    <div class="container">
+    Select which items you want to add or remove from your request. <br>
+    {% for k in itemlist %}
+    <input type="checkbox" name="items" id="{{k[0]}}" value="{{k[0]}}" {{k[1]}}>
+    <label for="{{k[0]}}">{{k[0]}}</label>
+    <label for="{{k[0]}}quantity">Quantity</label>
+    <input name="quantity" id="{{k[0]}}quantity" value="{{k[2]}}"><br>
+    {% endfor %}
+
+    <input type="submit" id="submit" name="submit"><br>
+    <a href="/home" id="home">Return to Home</a>
+    </div>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color:red;">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</form>
+</body>
+</html>

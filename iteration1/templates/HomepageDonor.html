@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="tablestyle.css">
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<style>
+    a.button {
+            display: inline-block;
+           margin: 8px 0;
+            background-color: #15aa04;
+            color: white;
+            padding: 12px 12px;
+            border: none;
+            cursor: pointer;
+            width: 150px;
+    text-align: center;
+
+        }
+a.button2 {
+            display: inline-block;
+            margin-right:5px;
+            background-color: #16670d;
+            color: white;
+            padding: 12px 12px;
+
+            border: none;
+            cursor: pointer;
+            width: 150px;
+    text-align: center;
+
+        }
+
+    .cont2{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+
+    }
+    input[type="radio"]{
+         display: inline;
+        horiz-align: left;
+}
+      .container2 {
+    border-radius: 5px;
+  background-color: #f2f2f2;
+
+            padding: 16px;
+            width:1000px;
+        }
+</style>
+<body>
+<a href="response" id="reponse" class="button">Create response</a><br>
+<a href="pledge" id="pledge" class="button2">Create Pledge</a><br>
+<form method="POST">
+    <div class="container2">
+    Requests:<br>
+     {% for k in requestList %}
+        <input type="radio" name="requests" id="{{k[0]}}req" value="{{k[0]}}"><br>
+        <dic class="cont2">
+        User: {{k[0]}} <br>
+        Event: {{k[1]}}<br>
+        Required Items:
+        {% set items = k[2] %}
+        {% for j in range((items|length)//2) %}
+        {{items[j]}} x {{items[j + ((items|length)//2)]}},
+
+        {% endfor %}
+        <br>Description: {{k[3]}}<br>
+        Zip: {{k[4]}} <br><br>
+        </dic>
+        {% endfor %}
+        <br>
+    </div>
+</form>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color:red;">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
+</body>
+</html>

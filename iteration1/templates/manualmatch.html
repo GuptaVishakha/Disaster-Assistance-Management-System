@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="tablestyle.css">
+    <meta charset="UTF-8">
+    <title>Manual Match</title>
+</head>
+<style>
+    .cont2{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+
+    }
+    input[type="radio"]{
+         display: inline;
+        horiz-align: left;
+}
+      .container2 {
+    border-radius: 5px;
+  background-color: #f2f2f2;
+
+            padding: 16px;
+            width:1000px;
+        }
+</style>
+<body>
+<form method="POST">
+    <div class="container2">
+    Requests:<br>
+     {% for k in requestList %}
+        <input type="radio" name="requests" id="{{k[0]}}req" value="{{k[0]}}" required><br>
+    <dic class="cont2">
+        Username: {{k[0]}} <br>
+        Event: {{k[1]}}<br>
+        Required Items:
+        {% set items = k[2] %}
+        {% for j in range((items|length)//2) %}
+            {{items[j]}} x {{items[j + ((items|length)//2)]}},
+
+        {% endfor %}
+        <br>Description: {{k[3]}}<br>
+        Zip: {{k[4]}} <br><br>
+         </dic>
+    {% endfor %}
+    <br>
+
+    Responses:<br>
+
+     {% for k in responseList %}
+        <input type="radio" name="responses" id="{{k[0]}}res" value="{{k[2]}}/{{k[0]}}" required><br>
+    <dic class="cont2">
+        Username: {{k[0]}} <br>
+        Event/Location: {{k[1]}}<br>
+        Donated Items:
+        {% set items = k[2] %}
+        {% for j in range((items|length)//2) %}
+            {{items[j]}} x {{items[j + ((items|length)//2)]}},
+
+        {% endfor %}
+        <br>Description: {{k[3]}}<br>
+        Zip: {{k[4]}} <br><br>
+        </dic>
+    {% endfor %}
+
+
+    <input type="submit" id="yes" name = "submit" value="Yes"><br>
+        <a href="/home" id="home">Return to Home</a>
+    </div>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link  rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/tablestyle.css') }}">
+    <meta charset="UTF-8">
+    <title>Create Pledge</title>
+</head>
+<body>
+<form method="POST">
+    <div class="container">
+    <label for="Name">Enter Name</label>
+    <input id="Name" name = "Name" required><br>
+    <label for="Location">Enter Location</label>
+    <input id="Location" name = "Location" required><br>
+
+    </select><br>
+     {% for k in itemlist %}
+    <input type="checkbox" name="items" id="{{k[0]}}" value="{{k[0]}}">
+    <label for="{{k[0]}}">{{k[0]}}</label>
+    <input name="quantity" id="{{k[0]}}quantity">
+    <label for="{{k[0]}}quantity">Quantity</label><br>
+    {% endfor %}
+    <label for="description">Describe the items being pledged</label>
+    <textarea input type="text" id="description" name = "description" required class="textarea"></textarea><br>
+    <input type="submit" id="submit" name="submit"><br>
+    </div>
+    <a href="/home" id="home">Return to Home</a>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color:#ff0000;">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</form>
+</body>
+</html>

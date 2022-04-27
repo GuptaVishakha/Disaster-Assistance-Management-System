@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Response</title>
+</head>
+<body>
+<form method="POST">
+    Requests:<br>
+     {% for k in requestList %}
+        <input type="radio" name="requests" id="{{k[0]}}req" value="{{k[0]}}"><br>
+        Username: {{k[0]}} <br>
+        Event: {{k[1]}}<br>
+        Required Items:
+        {% set items = k[2] %}
+        {% for j in range((items|length)//2) %}
+            {{items[j]}} x {{items[j + ((items|length)//2)]}},
+
+        {% endfor %}
+        <br>Description: {{k[3]}}<br>
+        Zip: {{k[4]}} <br><br>
+    {% endfor %}
+    <br>
+    Responses:<br>
+     {% for k in responseList %}
+        <input type="radio" name="responses" id="{{k[0]}}res" value="{{k[2]}}/{{k[0]}}"><br>
+        Username: {{k[0]}} <br>
+        Event/Location: {{k[1]}}<br>
+        Donated Items:
+        {% set items = k[2] %}
+        {% for j in range((items|length)//2) %}
+            {{items[j]}} x {{items[j + ((items|length)//2)]}},
+
+        {% endfor %}
+        <br>Description: {{k[3]}}<br>
+        Zip: {{k[4]}} <br><br>
+    {% endfor %}
+
+    <input type="submit" id="yes" name = "submit" value="Yes">
+</form>
+</body>
+</html>

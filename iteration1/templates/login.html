@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        form {border: 3px solid #f1f1f1;
+            width: 750px;
+            margin: auto;
+        }
+        input[name=user], input[type=password] {
+             width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .container {
+            padding: 16px;
+            width:600px;
+        }
+        div.a{text-align: center;}
+
+    </style>
+</head>
+<body>
+<div class="a">
+<h1 style="color:black;">Login:</h1>
+    </div>
+<form method="POST">
+    <div class="container">
+    <label for="user">Username</label>
+    <input name="user" id = "user" value="{{ request.form['user'] }}" required>
+    <label for="password">Password</label>
+    <input type="password" name="password" id = "password" required>
+    <input type="submit" id = "submit">
+    </div>
+    <a href="register">Create an Account</a>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color:red;">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</form>
+</body>
+</html>

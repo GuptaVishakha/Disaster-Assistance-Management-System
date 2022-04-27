@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<style>
+    a.button {
+            display: inline-block;
+            background-color: #0446aa;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+    text-align: center;
+
+        }
+a.button2 {
+            display: inline-block;
+            background-color: #04aa28;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+    text-align: center;
+
+        }
+a.button3 {
+            display: inline-block;
+            background-color: #5d04aa;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+
+    text-align: center;
+        }
+
+.container {
+
+            padding: 16px ;
+            width:450px;
+    margin: auto;
+
+        }
+body {font-family: Arial, Helvetica, sans-serif;}
+</style>
+<body>
+<div class="container">
+<a href="match" id="manualmatch" class="button">Match the items donated and requested</a><br>
+<a href="event" id="eventcreation" class="button2">Create event</a><br>
+<a href="item" id="modifyitems" class="button3">Add/Create/Modify Items</a>
+</div>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color:red;">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</body>
+</html>

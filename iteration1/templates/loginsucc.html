@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<style>
+    a.button {
+            display: inline-block;
+            background-color: #22aa04;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+    text-align: center;
+
+        }
+    a.button2 {
+            display: inline-block;
+            background-color: #04aa41;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+    text-align: center;
+
+        }
+    a.button3 {
+            display: inline-block;
+            background-color: #037709;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+    text-align: center;
+
+        }
+    a.button4 {
+            display: inline-block;
+            background-color: #38bf28;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+    text-align: center;
+
+        }
+    a.button5 {
+            display: inline-block;
+            background-color: #0415aa;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+    text-align: center;
+
+        }
+    a.button6 {
+            display: inline-block;
+            background-color: #6a04aa;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+    text-align: center;
+
+        }
+    a.button7 {
+            display: inline-block;
+            background-color: #04aa89;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+    text-align: center;
+
+        }
+    .container {
+
+            padding: 16px ;
+            width:450px;
+    margin: auto;
+
+        }
+</style>
+<body>
+<div class="container">
+<a href="response" id="reponse" class="button">Create response</a><br>
+<a href="pledge" id="pledge" class="button2">Create Pledge</a><br>
+<a href="request" id="request" class="button3">Create request</a><br>
+<a href="event" id="event" class="button4">Create event</a><br>
+<a href="item" id="item" class="button5">Create/Modify Item</a><br>
+<a href="modify" id="modify" class="button6">Modify/Delete Request</a><br>
+<a href="match" id="match" class="button7">Manual Match</a>
+</div>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color:red;">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</body>
+</html>

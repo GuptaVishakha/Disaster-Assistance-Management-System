@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        a.button {
+            display: inline-block;
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+    text-align: center;
+
+        }
+        a.button2 {
+            display: inline-block;
+            background-color: #7804aa;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+    text-align: center;
+
+        }
+        .container {
+
+            padding: 16px ;
+            width:450px;
+    margin: auto;
+
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+<a href="request" id="request" class="button">Create request</a><br>
+<a href="modify" id="modifyrequest" class="button2">Modify/Delete Request</a>
+</div>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color:red;">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</body>
+</html>
